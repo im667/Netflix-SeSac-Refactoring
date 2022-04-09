@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class MainViewController: UICollectionViewController {
 
@@ -34,7 +35,9 @@ class MainViewController: UICollectionViewController {
         
         //CollectionView Item(Cell) SETTING
         
+      
         collectionView.register(ContentCollectionViewCell.self, forCellWithReuseIdentifier: "ContentCollectionViewCell")
+        collectionView.register(ContentCollectionViewHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "ContentCollectionViewHeader")
         
     }
 
@@ -83,6 +86,19 @@ extension MainViewController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let sectionName = contents[indexPath.section].sectionName
         print("TEST:\(sectionName) 섹션의 \(indexPath.row + 1) 번째 콘텐츠")
+    }
+    
+    //헤더뷰 설정
+    
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        if kind == UICollectionView.elementKindSectionHeader {
+            guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "ContentCollectionViewHeader", for: indexPath) as? ContentCollectionViewHeader else { fatalError("Could not dequeue Header") }
+            
+            headerView.sectionNameLabel.text = contents[indexPath.section].sectionName
+            return headerView
+        } else {
+            return UICollectionReusableView()
+        }
     }
     
     
