@@ -33,8 +33,6 @@ class MainViewController: UICollectionViewController {
         contents = getContent()
         
         
-        //CollectionView Item(Cell) SETTING
-        
       
         collectionView.register(ContentCollectionViewCell.self, forCellWithReuseIdentifier: "ContentCollectionViewCell")
         collectionView.register(ContentCollectionViewHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "ContentCollectionViewHeader")
