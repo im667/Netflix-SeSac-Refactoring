@@ -8,6 +8,11 @@
 import UIKit
 import SnapKit
 
+protocol ReuseableView {
+    static var resuseIdentifier : String { get }
+}
+
+
 class ContentCollectionViewCell : UICollectionViewCell {
     let imageView = UIImageView()
     
@@ -29,6 +34,14 @@ class ContentCollectionViewCell : UICollectionViewCell {
             $0.edges.equalToSuperview()
         }
         
+    }
+    
+}
+
+extension UICollectionViewCell {
+    
+    static var reuseIdentifier : String {
+        return String(describing: self)
     }
     
 }

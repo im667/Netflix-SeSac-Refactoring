@@ -10,13 +10,19 @@ import UIKit
 import SwiftUI
 @available(iOS 13.0, *)
 
-class MainViewController: UICollectionViewController {
+class MainViewController: UIViewController {
 
     var contents : [Content] = []
+    var mainView = MainView()
+    
     
     //#imageLiteral
     let netflixIcon = #imageLiteral(resourceName: "netflix_icon")
     
+    
+    override func loadView() {
+        self.view = mainView
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,15 +35,18 @@ class MainViewController: UICollectionViewController {
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: netflixIcon, style: .plain, target: nil, action: nil)
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "person.crop.circle"), style: .plain, target: nil, action: nil)
-    
+     
+        mainView.collectionView.delegate = self
+        mainView.collectionView.dataSource = self
         
         //DATA SETTING & GET
         contents = getContent()
         
         
-        collectionView.register(ContentCollectionViewCell.self, forCellWithReuseIdentifier: "ContentCollectionViewCell")
-        collectionView.register(ContentCollectionViewHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "ContentCollectionViewHeader")
+        mainView.collectionView.register(ContentCollectionViewCell.self, forCellWithReuseIdentifier: "ContentCollectionViewCell")
+        mainView.collectionView.register(ContentCollectionViewHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "ContentCollectionViewHeader")
 
+     
         
     }
 
@@ -48,11 +57,14 @@ class MainViewController: UICollectionViewController {
                 
                 return list
     }
+    
+    
+    
 }
 //:UICollectionViewDelegate,UICollectionViewDataSource
-extension MainViewController {
+extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
         case 0:
             return 1
@@ -63,7 +75,7 @@ extension MainViewController {
         }
     }
     
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch contents[indexPath.section].sectionType {
             
         case .basic, .large :
@@ -77,20 +89,20 @@ extension MainViewController {
         }
     }
     
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return contents.count
     }
     
     //셀 선택
     
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let sectionName = contents[indexPath.section].sectionName
         print("TEST:\(sectionName) 섹션의 \(indexPath.row + 1) 번째 콘텐츠")
     }
     
     //헤더뷰 설정
     
-    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if kind == UICollectionView.elementKindSectionHeader {
             guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "ContentCollectionViewHeader", for: indexPath) as? ContentCollectionViewHeader else { fatalError("Could not dequeue Header") }
             
@@ -101,7 +113,7 @@ extension MainViewController {
         }
     }
     
-    struct MainViewController_Previews:PreviewProvider {
+    struct MainViewController_Previews:PreviewProvider{
         
         static var previews: some View {
             container().edgesIgnoringSafeArea(.all)
@@ -109,8 +121,7 @@ extension MainViewController {
         
         struct container: UIViewControllerRepresentable {
             func makeUIViewController(context: Context) -> UIViewController {
-                let layout = UICollectionViewLayout()
-                let mainViewController = MainViewController(collectionViewLayout: layout)
+                let mainViewController = MainViewController()
                 return UINavigationController(rootViewController: mainViewController)
             }
             

@@ -17,6 +17,7 @@
 		045548BD280189CD00B9D1DB /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045548BC280189CD00B9D1DB /* Content.swift */; };
 		045548BF2801901400B9D1DB /* ContentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045548BE2801901400B9D1DB /* ContentCollectionViewCell.swift */; };
 		045548C12801967C00B9D1DB /* ContentCollectionViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045548C02801967C00B9D1DB /* ContentCollectionViewHeader.swift */; };
+		045548C32805A68400B9D1DB /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045548C22805A68400B9D1DB /* MainView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		045548BC280189CD00B9D1DB /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
 		045548BE2801901400B9D1DB /* ContentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCollectionViewCell.swift; sourceTree = "<group>"; };
 		045548C02801967C00B9D1DB /* ContentCollectionViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCollectionViewHeader.swift; sourceTree = "<group>"; };
+		045548C22805A68400B9D1DB /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				045548A327FFF72B00B9D1DB /* AppDelegate.swift */,
 				045548A527FFF72B00B9D1DB /* SceneDelegate.swift */,
 				045548A727FFF72B00B9D1DB /* MainViewController.swift */,
+				045548C22805A68400B9D1DB /* MainView.swift */,
 				045548BE2801901400B9D1DB /* ContentCollectionViewCell.swift */,
 				045548C02801967C00B9D1DB /* ContentCollectionViewHeader.swift */,
 				045548AC27FFF72F00B9D1DB /* Assets.xcassets */,
@@ -156,6 +159,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				045548A827FFF72B00B9D1DB /* MainViewController.swift in Sources */,
+				045548C32805A68400B9D1DB /* MainView.swift in Sources */,
 				045548C12801967C00B9D1DB /* ContentCollectionViewHeader.swift in Sources */,
 				045548A427FFF72B00B9D1DB /* AppDelegate.swift in Sources */,
 				045548A627FFF72B00B9D1DB /* SceneDelegate.swift in Sources */,
