@@ -14,8 +14,6 @@ class MainView : UIView {
     
     let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
     
-  
-    
     
     override init(frame:CGRect) {
         super.init(frame: frame)

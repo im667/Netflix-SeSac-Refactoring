@@ -113,26 +113,26 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         }
     }
     
-    struct MainViewController_Previews:PreviewProvider{
-        
-        static var previews: some View {
-            container().edgesIgnoringSafeArea(.all)
-        }
-        
-        struct container: UIViewControllerRepresentable {
-            func makeUIViewController(context: Context) -> UIViewController {
-                let mainViewController = MainViewController()
-                return UINavigationController(rootViewController: mainViewController)
-            }
-            
-            func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
-                
-            }
-            
-            typealias UIViewControllerType = UIViewController
-        }
-        
-    }
+  
     
 }
 #endif
+
+struct MainViewController_Previews: PreviewProvider {
+    
+    static var previews: some View {
+        container().edgesIgnoringSafeArea(.all)
+    }
+    
+    struct container: UIViewControllerRepresentable {
+        func makeUIViewController(context: Context) -> UIViewController {
+            let mainViewController = MainViewController()
+            return UINavigationController(rootViewController: mainViewController)
+        }
+        
+        func updateUIViewController(_ uiViewController: UIViewController, context: Context) {}
+        
+        typealias UIViewControllerType = UIViewController
+    }
+    
+}
