@@ -11,6 +11,8 @@ import SnapKit
 class ContentCollectionViewCell : UICollectionViewCell {
     let imageView = UIImageView()
     
+    static let identifier = "ContentCollectionViewCell"
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         

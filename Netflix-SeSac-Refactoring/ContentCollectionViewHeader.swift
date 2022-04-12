@@ -11,7 +11,11 @@ import SnapKit
 
 class ContentCollectionViewHeader : UICollectionReusableView {
     
+    static let identifier = "ContentCollectionViewHeader"
+    
     let sectionNameLabel = UILabel()
+
+    
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -19,7 +23,6 @@ class ContentCollectionViewHeader : UICollectionReusableView {
         sectionNameLabel.font = .systemFont(ofSize: 17, weight: .bold)
         sectionNameLabel.textColor = .white
         sectionNameLabel.sizeToFit()
-        
         addSubview(sectionNameLabel)
         
         

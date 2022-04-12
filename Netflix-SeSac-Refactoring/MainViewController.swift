@@ -6,7 +6,9 @@
 //
 
 import UIKit
+#if canImport(SwiftUI) && DEBUG
 import SwiftUI
+@available(iOS 13.0, *)
 
 class MainViewController: UICollectionViewController {
 
@@ -33,9 +35,9 @@ class MainViewController: UICollectionViewController {
         contents = getContent()
         
         
-      
         collectionView.register(ContentCollectionViewCell.self, forCellWithReuseIdentifier: "ContentCollectionViewCell")
         collectionView.register(ContentCollectionViewHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "ContentCollectionViewHeader")
+
         
     }
 
@@ -99,5 +101,27 @@ extension MainViewController {
         }
     }
     
+    struct MainViewController_Previews:PreviewProvider {
+        
+        static var previews: some View {
+            container().edgesIgnoringSafeArea(.all)
+        }
+        
+        struct container: UIViewControllerRepresentable {
+            func makeUIViewController(context: Context) -> UIViewController {
+                let layout = UICollectionViewLayout()
+                let mainViewController = MainViewController(collectionViewLayout: layout)
+                return UINavigationController(rootViewController: mainViewController)
+            }
+            
+            func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
+                
+            }
+            
+            typealias UIViewControllerType = UIViewController
+        }
+        
+    }
     
 }
+#endif
