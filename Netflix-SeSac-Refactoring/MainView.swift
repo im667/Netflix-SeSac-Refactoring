@@ -27,7 +27,7 @@ class MainView : UIView {
     }
     
     func configure(){
-         collectionView.backgroundColor = .white
+        collectionView.backgroundColor = .black
         
     }
     
