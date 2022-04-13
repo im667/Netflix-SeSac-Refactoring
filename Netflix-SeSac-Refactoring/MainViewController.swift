@@ -67,11 +67,32 @@ class MainViewController: UIViewController {
             switch self.contents[sectionNumber].sectionType {
             case .basic:
                 return self.createBasicTypeSection()
+                
+            case .large:
+                return self.createLargeTypeSection()
+                
             default :
                 return nil
             }
             
         }
+    }
+    
+    private func createLargeTypeSection()->NSCollectionLayoutSection {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.4), heightDimension: .fractionalWidth(0.8))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        item.contentInsets = .init(top: 10, leading: 5, bottom: 0, trailing: 5)
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.9), heightDimension: .estimated(400))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 2)
+        
+        let section = NSCollectionLayoutSection(group: group)
+        section.orthogonalScrollingBehavior = .continuous
+        section.contentInsets = .init(top: 0, leading: 7, bottom: 0, trailing: 7)
+        
+        let sectionHeader = self.createSectionHeader()
+        section.boundarySupplementaryItems = [sectionHeader]
+        
+        return section
     }
     
     
@@ -110,7 +131,7 @@ class MainViewController: UIViewController {
 extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if contents[section].sectionType == .basic {
+        if contents[section].sectionType == .basic || contents[section].sectionType == .large {
             switch section {
             case 0:
                 return 1
