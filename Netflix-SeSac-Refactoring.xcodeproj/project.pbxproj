@@ -18,7 +18,8 @@
 		045548BF2801901400B9D1DB /* ContentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045548BE2801901400B9D1DB /* ContentCollectionViewCell.swift */; };
 		045548C12801967C00B9D1DB /* ContentCollectionViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045548C02801967C00B9D1DB /* ContentCollectionViewHeader.swift */; };
 		045548C32805A68400B9D1DB /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045548C22805A68400B9D1DB /* MainView.swift */; };
-		0464CB502808142000F494AE /* ContentCollectionViewRankCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0464CB4F2808142000F494AE /* ContentCollectionViewRankCell.swift */; };
+		0464CB502808142000F494AE /* ContentCollectionViewMainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0464CB4F2808142000F494AE /* ContentCollectionViewMainCell.swift */; };
+		0464CB52280EE59100F494AE /* ContentCollectionViewRankCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0464CB51280EE59100F494AE /* ContentCollectionViewRankCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,7 +35,8 @@
 		045548BE2801901400B9D1DB /* ContentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCollectionViewCell.swift; sourceTree = "<group>"; };
 		045548C02801967C00B9D1DB /* ContentCollectionViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCollectionViewHeader.swift; sourceTree = "<group>"; };
 		045548C22805A68400B9D1DB /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		0464CB4F2808142000F494AE /* ContentCollectionViewRankCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCollectionViewRankCell.swift; sourceTree = "<group>"; };
+		0464CB4F2808142000F494AE /* ContentCollectionViewMainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCollectionViewMainCell.swift; sourceTree = "<group>"; };
+		0464CB51280EE59100F494AE /* ContentCollectionViewRankCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCollectionViewRankCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,7 +75,8 @@
 				045548A727FFF72B00B9D1DB /* MainViewController.swift */,
 				045548C22805A68400B9D1DB /* MainView.swift */,
 				045548BE2801901400B9D1DB /* ContentCollectionViewCell.swift */,
-				0464CB4F2808142000F494AE /* ContentCollectionViewRankCell.swift */,
+				0464CB4F2808142000F494AE /* ContentCollectionViewMainCell.swift */,
+				0464CB51280EE59100F494AE /* ContentCollectionViewRankCell.swift */,
 				045548C02801967C00B9D1DB /* ContentCollectionViewHeader.swift */,
 				045548AC27FFF72F00B9D1DB /* Assets.xcassets */,
 				045548AE27FFF72F00B9D1DB /* LaunchScreen.storyboard */,
@@ -163,9 +166,10 @@
 			files = (
 				045548A827FFF72B00B9D1DB /* MainViewController.swift in Sources */,
 				045548C32805A68400B9D1DB /* MainView.swift in Sources */,
+				0464CB52280EE59100F494AE /* ContentCollectionViewRankCell.swift in Sources */,
 				045548C12801967C00B9D1DB /* ContentCollectionViewHeader.swift in Sources */,
 				045548A427FFF72B00B9D1DB /* AppDelegate.swift in Sources */,
-				0464CB502808142000F494AE /* ContentCollectionViewRankCell.swift in Sources */,
+				0464CB502808142000F494AE /* ContentCollectionViewMainCell.swift in Sources */,
 				045548A627FFF72B00B9D1DB /* SceneDelegate.swift in Sources */,
 				045548BD280189CD00B9D1DB /* Content.swift in Sources */,
 				045548BF2801901400B9D1DB /* ContentCollectionViewCell.swift in Sources */,
