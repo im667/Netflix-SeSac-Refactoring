@@ -22,6 +22,10 @@ class ContentCollectionViewMainCell: UICollectionViewCell {
     let discriptionLabel = UILabel()
     let contentStackView = UIStackView()
     
+    let plusButton = UIButton()
+    let playButton = UIButton()
+    let infoButton = UIButton()
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         
@@ -29,14 +33,13 @@ class ContentCollectionViewMainCell: UICollectionViewCell {
             contentView.addSubview($0)
         }
         
-        baseStackView.axis = .horizontal
+        baseStackView.axis = .vertical
         baseStackView.alignment = .center
         baseStackView.distribution = .fillProportionally
         baseStackView.spacing = 5
         
-        baseStackView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
+        
+   
         
         [imageView,discriptionLabel,contentStackView].forEach {
             baseStackView.addArrangedSubview($0)
@@ -57,10 +60,45 @@ class ContentCollectionViewMainCell: UICollectionViewCell {
         contentStackView.distribution = .equalCentering
         contentStackView.spacing = 20
         
-        contentStackView.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(30)
+        
+        
+        [plusButton,infoButton].forEach {
+            $0.titleLabel?.font = .systemFont(ofSize: 13)
+            $0.setTitleColor(.white , for: . normal)
+            $0.imageView?.tintColor = .white
+            $0.adjustVerticalLayout(5)
         }
         
+        plusButton.setTitle("내가 찜한 콘텐츠", for: .normal)
+        plusButton.setImage(UIImage(systemName: "plus") , for: .normal)
+      
+        infoButton.setTitle("정보", for: .normal)
+        infoButton.setImage(UIImage(systemName: "info.circle") , for: .normal)
+         
+        playButton.setTitle("재생", for: .normal)
+        playButton.setTitleColor(.black, for: .normal)
+        playButton.backgroundColor = .white
+        playButton.layer.cornerRadius = 3
+        playButton.snp.makeConstraints { make in
+            make.width.equalTo(90)
+            make.height.equalTo(30)
+        }
+        
+       
+        [plusButton,playButton,infoButton].forEach {
+            contentStackView.addArrangedSubview($0)
+        }
+        
+        contentStackView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.leading.trailing.equalToSuperview().inset(30)
+            make.height.equalTo(60)
+        }
+        
+        
+        baseStackView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
         
         menuStackView.axis = .horizontal
         menuStackView.alignment = .center
