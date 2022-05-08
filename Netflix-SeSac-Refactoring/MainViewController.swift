@@ -245,20 +245,19 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
 #endif
 
 struct MainViewController_Previews: PreviewProvider {
-    
     static var previews: some View {
-        container().edgesIgnoringSafeArea(.all)
-    } 
-    
-    struct container: UIViewControllerRepresentable {
-        func makeUIViewController(context: Context) -> UIViewController {
-            let mainViewController = MainViewController()
-            return UINavigationController(rootViewController: mainViewController)
-        }
-        
-        func updateUIViewController(_ uiViewController: UIViewController, context: Context) {}
-        
-        typealias UIViewControllerType = UIViewController
+        MainViewControllerRepresentable().edgesIgnoringSafeArea(.all)
+    }
+}
+
+
+struct MainViewControllerRepresentable: UIViewControllerRepresentable {
+    func makeUIViewController(context: Context) -> UIViewController {
+        let mainViewController = MainViewController()
+        return UINavigationController(rootViewController: mainViewController)
     }
     
+    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {}
+    
+    typealias UIViewControllerType = UIViewController
 }
