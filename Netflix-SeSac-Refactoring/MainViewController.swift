@@ -222,9 +222,15 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     //셀 선택
     
      func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let sectionName = contents[indexPath.section].sectionName
-        print("TEST:\(sectionName) 섹션의 \(indexPath.row + 1) 번째 콘텐츠")
-    }
+         
+         let isFirstSection = indexPath.section == 0
+         let selectedItem = isFirstSection ? mainItem : contents[indexPath.section].contentItem[indexPath.row]
+         
+         let contentDetailView = ContentDetailView(item: selectedItem)
+         let hostingVC = UIHostingController(rootView: contentDetailView)
+         self.show(hostingVC, sender: nil)
+         
+     }
     
     //헤더뷰 설정
     

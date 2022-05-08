@@ -8,8 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    let titles = ["Nexflix Sample App"]
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            List(titles, id: \.self) {
+                let netflixVC = MainViewControllerRepresentable()
+                    .navigationBarHidden(true)
+                    .edgesIgnoringSafeArea(.all)
+                NavigationLink($0, destination: netflixVC)
+            }
+            .navigationTitle("Swift to UIkit")
+        }
     }
 }
 
